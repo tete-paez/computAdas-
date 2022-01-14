@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Give+You+Glory&family=Josefin+Sans:wght@300&display=swap');
+
+*{  padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px black;
+    border-radius: 6px;
+    margin: auto;
+    /* padding: 5px; */
+}
+.xxl {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(233, 233, 233);
+}
+.xl {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    width: 94%;
+    padding: 2px;
+}
+.m {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 94%;
+}
+.s {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 2px;
+}
+
+.title {
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
+}
+.ventas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: solid 1px black;
+    border-radius: 6px;
+    background-color: #364397;
+    margin: 2px;
+    margin-bottom: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.btn {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    border: 0;
+    border-radius: 3px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+    color: rgb(255, 255, 255);
+    height: 25px;
+    align-self: center;
+    align-content: center;
+    background-color: white;
+}
+.nuevaVenta {
+    width: 10%;
+    background-color: rgb(118, 224, 104);
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+input {
+    width: 95%;
+}
+.reportes {
+    align-self: flex-start;
+}
+th {
+    font-weight: bolder;
+    padding: 5px;
+}
+td {
+    padding: 3px;
+    padding-left: 2%;
+    font-weight: bold;
+}
+.iconEditar {
+    color: rgb(118, 224, 104);
+}
+.iconEliminar {
+    color: rgb(224, 47, 47)
+}
+.td-botones {
+    display: flex;
+    justify-content: space-around;
+}
+.iconNuevaVenta {
+    
+}
+
+/* modales *//* modales *//* modales *//* modales */
+/* modales *//* modales *//* modales *//* modales */
+/* modales *//* modales *//* modales *//* modales */
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+.inputFecha {
+    width: 100%;
+}
+.cancelar-aceptar {
+    margin-top: 4%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.cancelar {
+    color: firebrick;
+    font-size: 30px;
+}
+.guardar {
+    color: green;
+    font-size: 30px;
+}
+.modal-container {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: auto;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+}
+.modal {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    background-color: #fff;
+    width: 400px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    
+}
+.modal div {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.mostrar {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+
+
+

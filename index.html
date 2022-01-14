@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"
+        integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous">
+    </script>
+    <title>computAdas</title>
+</head>
+
+<body>
+    <div class="container xxl">
+        <!-- VENTAS POR SUCURSAL & REPORTES -->
+
+        <div class="container m">
+            <!-- VENTAS POR SUCURSAL  -->
+            <div class="container s">
+                <div class="title ventas">
+                    <h3>Ventas por Sucursal</h3>
+                </div>
+                <table class="table">
+                    <tr>
+                        <th scope="col">Sucursal</th>
+                        <th scope="col">Total Ventas</th>
+                    </tr>
+                    <tr>
+                        <th scope="row"><input type="name"></th>
+                        <th scope="row"><input type="number"></th>
+                    </tr>
+                </table>
+            </div>
+            <!--  REPORTES -->
+            <div class="container s">
+                <div class="title ventas">
+                    <h3>Reportes</h3>
+                </div>
+                <table class="table reportes">
+                    <tr>
+                        <th scope="row">Productos Estrella: <span id="productoEstrella"></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="row">Vendedora que Más Ingresos Generó: <span id="mejorVendedora"></span>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- VENTAS -->
+        <div class="container xl">
+            <div class="title ventas">
+                <h3>VENTAS</h3>
+                <button type="submit" id="nuevaVenta" class="btn nuevaVenta"><i
+                        class="fas fa-plus-circle iconNuevaVenta"></i>Nueva Venta</button>
+            </div>
+            <table class="table" id="tabla">
+                <tr>
+                    <th scope="col">FECHA</th>
+                    <th scope="col">VENDEDORA</th>
+                    <th scope="col">SUCURSAL</th>
+                    <th scope="col">COMPONENTES</th>
+                    <th scope="col">PRECIO</th>
+                    <th scope="col">ACCIONES</th>
+                </tr>
+                <!-- <tr>
+                    <td scope="row"> </td>
+                    <td scope="row"> </td>
+                    <td scope="row"> </td>
+                    <td scope="row"> </td>
+                    <td scope="row"> </td>
+                    <td scope="row">
+                        <div class="m">
+                            
+                             
+                            <button type="button" class="btn" id="btn-editar"><i class="fas fa-edit icon"></i></button>
+                            <button type="button" class="btn" id="btn-eliminar"><i
+                                class="fas fa-trash icon"></i></button> 
+                            
+
+                        </div>
+                    </td>
+                </tr> -->
+                <tr id="tablaVentasDsdJS"></tr>
+            </table>
+
+
+
+
+        </div>
+
+    </div>
+    </div>
+    <!-- MODAL nueva venta -->
+    <div class="modal-container" id="agregarVenta">
+        <div class="modal">
+            <div class="title ventas">
+                <h3>VENTAS</h3>
+            </div>
+            <form id="nuevaVenta" action="">
+                <div class="info">
+
+
+                    <!-- 
+
+                    <form>
+                        <input id="numero1" type="text" name="">
+                        <input id="numero2" type="text" name="">
+                        <select id="operaciones">
+                            <option id="suma" value="suma">Suma</option>
+                            <option id="multiplicacion" value="multiplicaion">multiplicacion</option>
+                            <option id="divicion" value="divicion">Divicion</option>
+                        </select>
+                        <input type="button" name="" value="calcular" onclick="operacion()">
+                                    </form>
+
+ -->
+                    <label>VENDEDORA: </label>
+                    <select id="vendedoras">
+                        <!-- <option value="vendedoraAda">Ada</option>
+                        <option value="vendedoraGrace">Grace</option>
+                        <option value="vendedoraHedy">Hedy</option>
+                        <option value="vendedoraSheryl">Sheryl</option> -->
+                    </select>
+                </div>
+                <div class="info">
+                    <label>COMPONENTES:</label>
+                    <select id="componentes" multiple>
+                        <!-- 
+                            ["Monitor GPRS 3000", 200],
+                            ["Motherboard ASUS 1500", 120],
+                            ["Monitor ASC 543", 250],
+                            ["Motherboard ASUS 1200", 100],
+                            ["Motherboard MZI", 30],
+                            ["HDD Toyiva", 90],
+                            ["HDD Wezter Dishital", 75],
+                            ["RAM Quinston", 110],
+                            ["RAM Quinston Fury", 230],
+                        -->
+
+                    </select>
+                </div>
+                <div class="info">
+                    <label>SUCURSAL:</label>
+                    <select id="sucursal">
+                        <option value="">Seleccionar</option>
+                    </select>
+
+                </div>
+                <div class="info">
+                    <label>FECHA:</label>
+                    <input type="date" id="fecha" class="inputFecha" />
+                </div>
+                <div class="cancelar-aceptar">
+                    <button id="cerrarModalVenta" class="btn"><i class="fas fa-times-circle cancelar"></i></button>
+                    <button type="submit" class="btn"><i class="fas fa-check-circle guardar"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- MODAL editar venta -->
+    <div class="modal-container" id="editarVenta">
+        <div class="modal">
+            <div class="title ventas">
+                <h3>Editar Venta</h3>
+            </div>
+            <form action="">
+                <div class="info">
+                    <label>VENDEDORA:</label>
+                    <input type="name" />
+                </div>
+                <div class="info">
+                    <label>COMPONENTES:</label>
+                    <input type="name" />
+                </div>
+                <div class="info">
+                    <label>SUCURSAL:</label>
+                    <input type="name" />
+                </div>
+                <div class="info">
+                    <label>FECHA:</label>
+                    <input type="date" />
+                </div>
+                <div class="cancelar-aceptar">
+                    <button id="cerrarModalEditarVenta" class="btn"><i class="fas fa-times-circle cancelar"></i></button>
+                    <button class="btn"><i class="fas fa-check-circle guardar"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- MODAL eliminar venta -->
+    <div class="modal-container" id="eliminarVenta">
+        <div class="modal">
+            <div class="title ventas">
+                <h3>Eliminar Venta</h3>
+            </div>
+            <h4>¿Estás segura?</h4>
+            <h5>Esta acción no se puede revertir.</h5>
+            <div class="cancelar-aceptar">
+                <button id="cerrarModalEliminarVenta" class="btn"><i class="fas fa-times-circle cancelar"></i></button>
+                <button id="aceptarEliminarVenta" class="btn"><i class="fas fa-check-circle guardar"></i></button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
