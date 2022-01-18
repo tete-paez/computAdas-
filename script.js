@@ -1,3 +1,4 @@
+// CONSTANTES PRE-DECLARADAS PARA EL TP
 const ventas = [
     [1,
         new Date(2019, 1, 4),
@@ -35,7 +36,7 @@ const ventas = [
     ],
 ]
 
-const componentes = [
+const precios = [
     ["Monitor GPRS 3000", 200],
     ["Motherboard ASUS 1500", 120],
     ["Monitor ASC 543", 250],
@@ -51,9 +52,9 @@ const componentes = [
 // BOTON NUEVA VENTA + MODAL NUEVA VENTA + BOTON CERRAR MODAL NUEVA VENTA
 
 const btnNuevaVenta = document.getElementById('nuevaVenta'); //boton nueva venta
-const tablaHtml = document.getElementById('tabla');// la tabla
-const modalVenta = document.getElementById('agregarVenta');//el modal
-const formulario = document.getElementById('nuevaVenta');//el formulario
+const tablaHtml = document.getElementById('tabla'); // la tabla
+const modalVenta = document.getElementById('agregarVenta'); //el modal
+const formulario = document.getElementById('nuevaVenta'); //el formulario
 
 //const cerrarModalVenta = document.getElementById('cerrarModalVenta');
 //const btnConfirmarVenta = document.getElementById(confirmarVenta); 
@@ -62,17 +63,77 @@ const formulario = document.getElementById('nuevaVenta');//el formulario
 //PARA QUE LA FECHA ME QUEDE BIEN USAR ESTA FUNCION:
 const format = (date, locale, options) => new Intl.DateTimeFormat(locale, options).format(date);
 
-// FUNCION PARA COMPLETAR EL TD DE PECIO COMPONENTES
-const precioComponente = () => {
-    for (let i = 0; i < componentes.length; i++) {
-        //console.log(componentes[i])
-        for (let j = 0; j < componentes[i].length; j++) {
-            console.log(componentes[i][1])
-            
+// FUNCION PARA COMPLETAR EL CAMPO PRECIOS
+
+// FUNCION PARA SABER LA CANTIDAD DE VENTAS de cada componente determinado(paasandolo x parametro)
+
+const cantidadVentasComponente = (componente) => {
+    let cantidadVentas = 0;
+    for (let i = 0; i < ventas.length; i++) {
+        //console.log(ventas)
+        for (let j = 0; j < ventas[i][4].length; j++) {
+            //console.log(ventas[i][4])
+            // aca recorro ventas sub 4, que serian las ventas propiamente 
+            if (componente === ventas[i][4][j]) {
+                // aca entras a ventas con el [i]
+                // despues entras a la posiccion 4 con el [4] trayendote las ventas
+                // y con el [j] recorres esas ventas
+                cantidadVentas++
+            }
         }
     }
+    return cantidadVentas
 }
-precioComponente();
+//cantidadVentasComponente(ventas);
+//console.log(cantidadVentasComponente('Monitor GPRS 3000')); // 2
+
+
+const precioMaquina = (array) => {
+    let suma = 0
+    for (let precio of precios) {
+        //console.log(precio) 
+        // aca me muestra cada elemento del array cada precio of precios
+        array.forEach(element => {
+            //console.log(element)
+            if (precio.includes(element)) {
+                suma += precio[1]
+
+            }
+        });
+    }
+    return suma
+}
+//precioMaquina(); 
+//console.log(precioMaquina(['Monitor GPRS 3000', 'Motherboard ASUS 1500'])); // 320 ($200 del monitor + $120 del motherboard)
+
+
+
+
+//FUNCION ventasVendedora
+// le paso como parametro lo que necesito
+const ventasVendedora = (vendedora) => {
+    //inicio el contador:
+    let ventasVendedora = 0
+    //con un for recorro las ventas
+    for (venta of ventas) {
+        // si ventas sub 2 que seria la vendedora
+        // includes a la vendedodra que le paso x párametro
+        if (venta[2].includes(vendedora)) {
+            // si esto da true, sumame uno en el cnotador:
+            // este contador reutiliza la funcion precio maquina: que contabiliza las ventas sub 4 y su precio
+            ventasVendedora += precioMaquina(venta[4])
+        }
+    }
+    return ventasVendedora
+}
+ventasVendedora();
+//console.log(ventasVendedora("Ada"));
+//console.log(ventasVendedora("Grace"));
+
+
+
+
+
 
 // FUNCION PARA COMPLETAR LA TABLA DE VENTAS CON EL ARRAY PREDETERMINADO
 
@@ -81,12 +142,12 @@ const llenarTabla = () => {
         const crearFila = document.createElement('tr');
         tablaHtml.appendChild(crearFila);
         for (let j = 0; j < ventas[i].length; j++) {
-            crearFila.innerHTML = 
+            crearFila.innerHTML =
                 `<td>${format(ventas[i][1], 'es')}</td>
                 <td>${ventas[i][2]}</td>
                 <td>${ventas[i][3]}</td>
                 <td>${ventas[i][4]}</td>
-                <td>${componentes[i][1]}</td>
+                <td>${(precioMaquina.cantidadVentas)}</td>
                 <td class= "td-botones">
                 <button type="button" class="btn" id="btn-editar"><i class="fas fa-edit iconEditar"></i></button>
                 <button type="button" class="btn" id="btn-eliminar"><i class="fas fa-trash iconEliminar"></i></button> 
@@ -96,11 +157,21 @@ const llenarTabla = () => {
 }
 llenarTabla();
 
+
+
+
+
+
+//********************modales****************** */
+
+
+
+
 // FUNCION PARA QUE APAREZCA EL MODAL DE LA NUEVA VENTA
 
 btnNuevaVenta.addEventListener('click', () => {
     modalVenta.classList.add('mostrar');
-    formulario.addEventListener('submit',abrirModalCargarNuevaVenta)
+    formulario.addEventListener('submit', abrirModalCargarNuevaVenta)
 })
 
 //clase viernes 7 de diciembre 
@@ -108,62 +179,12 @@ btnNuevaVenta.addEventListener('click', () => {
 // AYUDA2 : PARA COMPARAR FECHAS https://www.it-swarm-es.com/es/javascript/compara-dos-fechas-con-javascript/958176042/
 
 
-// const abrirModalCargarNuevaVenta=(e)=>{
-//     e.preventDefault()
 
-//     const tr = document.createElement('tr')
-//     //aqui va el resto del codigo
-    
-//     //que va ir???? los datos que cargaron en el formulario
-//     const vendedora = document.getElementById('selectVendedora').value;
-//     const componente = document.getElementById('componentes').value;
-//     const sucursal = document.getElementById('sucursal').value;
-//     const fecha = document.getElementById('fecha').value;
-
-//     //Aca agrego el innertext en el html
-//     tr.innerHTML=`<td>${vendedora}</td><td>${componente}</td><td>${sucursal}</td><td>${fecha}</td>`
-
-    // NO ME ANDA// NO ME ANDA// NO ME ANDA// NO ME ANDA// NO ME ANDA
-    // NO ME ANDA// NO ME ANDA// NO ME ANDA// NO ME ANDA
-    // NO ME ANDA// NO ME ANDA// NO ME ANDA
-    // NO ME ANDA// NO ME ANDA
-    // NO ME ANDA// NO ME ANDA// NO ME ANDA// NO ME ANDA// NO ME ANDA
-    // NO ME ANDA// NO ME ANDA// NO ME ANDA// NO ME ANDA
-    // NO ME ANDA// NO ME ANDA// NO ME ANDA
-    // NO ME ANDA// NO ME ANDA
-    
-    
-//     tablaHtml.appendChild(tr)
-//   }
-  
-
-
-
-
-
-
-
-//   window.addEventListener('click', e => {
-//       if(e.target === modalVenta){
-//           modalVenta.style.display = 'none';
-//       }
-//   })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  window.addEventListener('click', e => {
+      if(e.target === modalVenta){
+          modalVenta.style.display = 'none';
+      }
+  })
 
 
 // FUNCION PARA QUE DES-APAREZCA EL MODAL DE LA NUEVA VENTA
@@ -241,7 +262,7 @@ const cargarVendedoras = () => {
         let option = document.createElement("option"); //Creamos la opcion
         option.innerHTML = vendedoras[i]; //Metemos el texto en la opción
         select.appendChild(option); //Metemos la opción en el select
-        
+
     }
 }
 cargarVendedoras();
@@ -258,17 +279,17 @@ function seleccionarVendedora() {
 // //-----> FUNCION PARA TRAERME LOS COMPONENTES
 
 const cargarComponentes = () => {
-    for (let i = 0; i < componentes.length; i++) {
-            const selectComponente = document.getElementById("componentes"); //Seleccionamos el select
-            let optionComponente = document.createElement("option"); //Creamos la opcion
-            optionComponente.innerHTML = componentes[i][0]; //Metemos el texto en la opción
-            selectComponente.appendChild(optionComponente); //Metemos la opción en el select
-            //console.log(componentes[i][0]);
-            // ACA HAY ARROR ME EJECUTA LA FUNCION CADA VEZ Q ENTRO
-            // ACA HAY ARROR ME EJECUTA LA FUNCION CADA VEZ Q ENTRO
-            // ACA HAY ARROR ME EJECUTA LA FUNCION CADA VEZ Q ENTRO
+    for (let i = 0; i < precios.length; i++) {
+        const selectComponente = document.getElementById("componentes"); //Seleccionamos el select
+        let optionComponente = document.createElement("option"); //Creamos la opcion
+        optionComponente.innerHTML = precios[i][0]; //Metemos el texto en la opción
+        selectComponente.appendChild(optionComponente); //Metemos la opción en el select
+        //console.log(precios[i][0]);
+        // ACA HAY ARROR ME EJECUTA LA FUNCION CADA VEZ Q ENTRO
+        // ACA HAY ARROR ME EJECUTA LA FUNCION CADA VEZ Q ENTRO
+        // ACA HAY ARROR ME EJECUTA LA FUNCION CADA VEZ Q ENTRO
     }
-    return true 
+    return true
 }
 cargarComponentes();
 
@@ -308,8 +329,12 @@ function seleccionarSucursal() {
 }
 
 //-----> FUNCION PARA TRAERME LA FECHA DE LA VENTA
-function sleccionarFecha () {
+function sleccionarFecha() {
     let selectFecha = document.getElementById('fecha');
     let fechaSeleccionada = selectFecha.value;
     console.log(fechaSeleccionada);
 }
+
+
+
+

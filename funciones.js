@@ -1,4 +1,4 @@
-// const vendedoras = ["Ada", "Grace", "Hedy", "Sheryl"];
+const vendedoras = ["Ada", "Grace", "Hedy", "Sheryl"];
 
 const ventas = [
     [1,
@@ -37,7 +37,7 @@ const ventas = [
     ],
 ]
 
-const componentes = [
+const precios = [
     ["Monitor GPRS 3000", 200],
     ["Motherboard ASUS 1500", 120],
     ["Monitor ASC 543", 250],
@@ -49,12 +49,12 @@ const componentes = [
     ["RAM Quinston Fury", 230],
 ]
 
-// console.log(precioMaquina(['Monitor GPRS 3000', 'Motherboard ASUS 1500'])); // 320 ($200 del monitor + $120 del motherboard)
-// console.log(cantidadVentasComponente('Monitor ASC 543')); // 2
-// console.log(vendedoraDelMes(1, 2019)); // "Ada" (vendio por $670, una máquina de $320 y otra de $350)
-// console.log(ventasMes(1, 2019)); // 1250
-// console.log(ventasVendedora('Grace')); // 900
-// console.log(componenteMasVendido()); // Monitor GPRS 3000
-// console.log(huboVentas(3, 2019)); // false
-// console.log(ventasSucursal('Centro')); // 990
-// console.log(sucursalDelMes(1, 2019)); // "Centro"
+console.log(precioMaquina(['Monitor GPRS 3000', 'Motherboard ASUS 1500'])); // 320 ($200 del monitor + $120 del motherboard)
+console.log(cantidadVentasComponente('Monitor ASC 543')); // 2
+console.log(vendedoraDelMes(1, 2019)); // "Ada" (vendio por $670, una máquina de $320 y otra de $350)
+console.log(ventasMes(1, 2019)); // 1250
+console.log(ventasVendedora('Grace')); // 900
+console.log(componenteMasVendido()); // Monitor GPRS 3000
+console.log(huboVentas(3, 2019)); // false
+console.log(ventasSucursal('Centro')); // 990
+console.log(sucursalDelMes(1, 2019)); // "Centro"
