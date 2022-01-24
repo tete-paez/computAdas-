@@ -93,10 +93,12 @@ const precioMaquina = (array) => {
     for (let precio of precios) {
         //console.log(precio) 
         // aca me muestra cada elemento del array cada precio of precios
-        array.forEach(element => {
+        array.forEach(element => { //el forEach entra en el parametro que le paso que en este caso es element
             //console.log(element)
             if (precio.includes(element)) {
+                //si en precio que seria cada uno de los arrays denrto del array precios, inclute los elementos que le paso x parametro, entonces:
                 suma += precio[1]
+                //sumame: precio sub (posicion) uno, y eso retorna la suma del precio de los elementos pasados x parametro 
 
             }
         });
@@ -104,7 +106,7 @@ const precioMaquina = (array) => {
     return suma
 }
 //precioMaquina(); 
-//console.log(precioMaquina(['Monitor GPRS 3000', 'Motherboard ASUS 1500'])); // 320 ($200 del monitor + $120 del motherboard)
+//precioMaquina(['Monitor GPRS 3000', 'Motherboard ASUS 1500'])); // 320 ($200 del monitor + $120 del motherboard)
 
 
 
@@ -126,14 +128,24 @@ const ventasVendedora = (vendedora) => {
     }
     return ventasVendedora
 }
-ventasVendedora();
+ventasVendedora("Ada");
 //console.log(ventasVendedora("Ada"));
 //console.log(ventasVendedora("Grace"));
 
-
-
-
-
+// const ventasSucursal = (sucursal) => {
+//     sucursal = 0;
+//     for (let i = 0; i < ventas.length; i++) {
+//         //console.log(ventas);
+//         for (let j = 0; j < ventas[i].length; j++) {
+//         //     if (ventas[i] === sucursal) {
+//         //console.log(ventas[]);
+//         //         sucursal++
+//         //     }
+//         //     return sucursal
+//         // }
+//     }
+// }
+// //ventasSucursal("Centro");
 
 // FUNCION PARA COMPLETAR LA TABLA DE VENTAS CON EL ARRAY PREDETERMINADO
 
@@ -147,7 +159,7 @@ const llenarTabla = () => {
                 <td>${ventas[i][2]}</td>
                 <td>${ventas[i][3]}</td>
                 <td>${ventas[i][4]}</td>
-                <td>${(precioMaquina.cantidadVentas)}</td>
+                <td>${precioMaquina(ventas[i][4])}</td>
                 <td class= "td-botones">
                 <button type="button" class="btn" id="btn-editar"><i class="fas fa-edit iconEditar"></i></button>
                 <button type="button" class="btn" id="btn-eliminar"><i class="fas fa-trash iconEliminar"></i></button> 
@@ -171,7 +183,7 @@ llenarTabla();
 
 btnNuevaVenta.addEventListener('click', () => {
     modalVenta.classList.add('mostrar');
-    formulario.addEventListener('submit', abrirModalCargarNuevaVenta)
+    formulario.addEventListener('click', abrirModalCargarNuevaVenta)
 })
 
 //clase viernes 7 de diciembre 
@@ -180,11 +192,11 @@ btnNuevaVenta.addEventListener('click', () => {
 
 
 
-  window.addEventListener('click', e => {
-      if(e.target === modalVenta){
-          modalVenta.style.display = 'none';
-      }
-  })
+window.addEventListener('click', e => {
+    if (e.target === modalVenta) {
+        modalVenta.style.display = 'none';
+    }
+})
 
 
 // FUNCION PARA QUE DES-APAREZCA EL MODAL DE LA NUEVA VENTA
@@ -334,7 +346,3 @@ function sleccionarFecha() {
     let fechaSeleccionada = selectFecha.value;
     console.log(fechaSeleccionada);
 }
-
-
-
-

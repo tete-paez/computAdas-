@@ -22,32 +22,44 @@
                 <div class="title ventas">
                     <h3>Ventas por Sucursal</h3>
                 </div>
-                <table class="table">
-                    <tr>
-                        <th scope="col">Sucursal</th>
-                        <th scope="col">Total Ventas</th>
-                    </tr>
-                    <tr>
-                        <th scope="row"><input type="name"></th>
-                        <th scope="row"><input type="number"></th>
-                    </tr>
-                </table>
+                <div class="contenedorImgTabla">
+                    <img src="./assets/undraw_teacher_re_sico.svg" class="imgBitcoin" alt="succesfulSeller">
+                    <table class="table" id="tablaVentasPorSucursal">
+                        <tr>
+                            <th scope="col">Sucursal</th>
+                            <th scope="col">Total Ventas</th>
+                        </tr>
+                        <tr>
+                            <td scope="row">Centro</td>
+                            <td scope="row" id="celdaVentasPorSucursalCentro">33</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Caballito</td>
+                            <td scope="row" id="celdaVentasPorSucursalCaballito">44</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <!--  REPORTES -->
             <div class="container s">
                 <div class="title ventas">
                     <h3>Reportes</h3>
                 </div>
-                <table class="table reportes">
-                    <tr>
-                        <th scope="row">Productos Estrella: <span id="productoEstrella"></span>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">Vendedora que Más Ingresos Generó: <span id="mejorVendedora"></span>
-                        </th>
-                    </tr>
-                </table>
+                <div class="contenedorImgTabla">
+                    <img src="./assets/undraw_happy_news_re_tsbd.svg" class="imgVendedora" alt="succesfulSeller">
+                    <table class="table" id="tablaReportes">
+                        <tr>
+                            <th scope="col">Productos Estrella</th>
+                            <th scope="col">Vendedora que Más Ingresos Generó</th>
+                        </tr>
+                        <tr>
+                            <td scope="row" id="celdaProductoEstrella"><i class="far fa-star iconProductoEstrella"></i>
+                            </td>
+                            <td scope="row" id="celdaVendedoraMayorIngresoGenerado"><i
+                                    class="fas fa-hand-holding-usd iconMejorVendedora"></i></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -186,7 +198,8 @@
                     <input type="date" />
                 </div>
                 <div class="cancelar-aceptar">
-                    <button id="cerrarModalEditarVenta" class="btn"><i class="fas fa-times-circle cancelar"></i></button>
+                    <button id="cerrarModalEditarVenta" class="btn"><i
+                            class="fas fa-times-circle cancelar"></i></button>
                     <button class="btn"><i class="fas fa-check-circle guardar"></i></button>
                 </div>
             </form>

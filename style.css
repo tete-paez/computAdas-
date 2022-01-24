@@ -17,8 +17,6 @@ body {
     flex-direction: column;
     border: solid 1px black;
     border-radius: 6px;
-    margin: auto;
-    /* padding: 5px; */
 }
 .xxl {
     padding: 5%;
@@ -47,9 +45,21 @@ body {
     display: flex;
     flex-direction: column;
     width: 50%;
-    padding: 2px;
+    height: auto;
 }
-
+.imgBitcoin {
+    width: 15%;
+}
+.imgVendedora {
+    width: 15%;
+}
+.contenedorImgTabla {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
 .title {
     font-weight: bolder;
     color: rgb(255, 255, 255);
@@ -92,17 +102,14 @@ body {
 input {
     width: 95%;
 }
-.reportes {
-    align-self: flex-start;
-}
+
 th {
     font-weight: bolder;
     padding: 5px;
 }
 td {
-    padding: 3px;
-    padding-left: 2%;
-    font-weight: bold;
+    padding: 5px;
+    padding-left: 3%;
 }
 .iconEditar {
     color: rgb(118, 224, 104);
@@ -114,8 +121,14 @@ td {
     display: flex;
     justify-content: space-around;
 }
-.iconNuevaVenta {
-    
+.iconProductoEstrella {
+    color: gold;
+}
+.iconMejorVendedora {
+    color:rgb(25, 107, 45)
+}
+th {
+    font-weight: bold;
 }
 
 /* modales *//* modales *//* modales *//* modales */

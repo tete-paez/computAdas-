@@ -48,12 +48,11 @@ const precios = [
     ["RAM Quinston", 110],
     ["RAM Quinston Fury", 230],
 ]
-
-console.log(precioMaquina(['Monitor GPRS 3000', 'Motherboard ASUS 1500'])); // 320 ($200 del monitor + $120 del motherboard)
-console.log(cantidadVentasComponente('Monitor ASC 543')); // 2
+//console.log(precioMaquina(['Monitor GPRS 3000', 'Motherboard ASUS 1500'])); // 320 ($200 del monitor + $120 del motherboard)
+//console.log(cantidadVentasComponente('Monitor ASC 543')); // 2
 console.log(vendedoraDelMes(1, 2019)); // "Ada" (vendio por $670, una máquina de $320 y otra de $350)
 console.log(ventasMes(1, 2019)); // 1250
-console.log(ventasVendedora('Grace')); // 900
+//console.log(ventasVendedora('Grace')); // 900
 console.log(componenteMasVendido()); // Monitor GPRS 3000
 console.log(huboVentas(3, 2019)); // false
 console.log(ventasSucursal('Centro')); // 990
